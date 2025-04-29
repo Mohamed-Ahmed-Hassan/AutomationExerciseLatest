@@ -1,18 +1,18 @@
 
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.*;
+
+import DriverManger.DriverManger;
 
 public class BaseTest {
 
-    String browser ="chrome"; //LoadProperties.userData.getProperty("Browser");
 
     @BeforeMethod
     public void initialization() {
-       DriverManger.driverSetup(browser);
+        DriverManger.driverSetup();
     }
 
     @AfterMethod
     public void closeBrowser() {
-     DriverManger.closeDriver();
+        DriverManger.closeDriver();
     }
 }

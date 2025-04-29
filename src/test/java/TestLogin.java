@@ -1,8 +1,11 @@
 import Pages.HomePage;
 import Pages.LoginPage;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-
+import utilities.ExtentReportManager.ExtentReportListener;
+import utilities.Global;
+@Listeners(ExtentReportListener.class)
 public class TestLogin extends BaseTest {
 
     HomePage homePage;
@@ -10,15 +13,14 @@ public class TestLogin extends BaseTest {
 
     @BeforeMethod
     public void init(){
-        homePage = new HomePage(DriverManger.getDriver());
-        loginPage = new LoginPage(DriverManger.getDriver());
+        homePage = new HomePage();
+        loginPage = new LoginPage();
     }
-
 
     @Test
     public void loginTest(){
         homePage.goToSignupLogin();
-        loginPage.login("","");
+        loginPage.login(Global.getEmail(),Global.getPassword());
     }
 
 }

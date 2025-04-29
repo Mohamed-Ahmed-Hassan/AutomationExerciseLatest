@@ -1,20 +1,20 @@
 package Pages;
 
+import DriverManger.DriverManger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import utilities.ElementHelper;
 
-public class HomePage extends BasePage{
-    public HomePage(WebDriver driver) {
-        super(driver);
+public class HomePage {
+    WebDriver driver;
+
+    By signupLogin = By.linkText("Signup / Login");
+
+    public HomePage() {
+        this.driver = DriverManger.getDriver();
     }
 
-    // Locators
-    By signupLoginBtn = By.linkText("Signup / Login");
-
-
-    //Methods
-    public void goToSignupLogin(){
-        click(signupLoginBtn);
+    public void goToSignupLogin() {
+        ElementHelper.click(driver, signupLogin);
     }
-
 }

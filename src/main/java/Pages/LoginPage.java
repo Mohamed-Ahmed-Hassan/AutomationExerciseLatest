@@ -1,30 +1,24 @@
 package Pages;
 
+import DriverManger.DriverManger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import utilities.ElementHelper;
 
-public class LoginPage extends BasePage{
+public class LoginPage {
+    WebDriver driver;
 
-    public LoginPage(WebDriver driver) {
-        super(driver);
+    By emailInput = By.name("email");
+    By passwordInput = By.name("password");
+    By loginButton = By.xpath("//button[contains(text(),'Login')]");
+
+    public LoginPage() {
+        this.driver = DriverManger.getDriver();
     }
 
-
-    // Locators
-    //By signupLoginBtn = By.linkText("Signup / Login");
-    By email = By.xpath("//input[@data-qa='login-email']");
-    By password = By.xpath("//input[@data-qa='login-password']");
-    By loginbtn = By.xpath("//button[text()='Login']");
-
-
-    //Methods
-    public void login(String Email ,String Password){
-        //click(signupLoginBtn);
-        sendKeys(email,Email);
-        sendKeys(password,Password);
-        click(loginbtn);
-
+    public void login(String email, String password) {
+        ElementHelper.sendKeys(driver, emailInput, email);
+        ElementHelper.sendKeys(driver, passwordInput, password);
+        ElementHelper.click(driver, loginButton);
     }
-
 }

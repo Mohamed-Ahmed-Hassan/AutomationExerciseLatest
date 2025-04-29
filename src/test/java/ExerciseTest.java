@@ -95,9 +95,7 @@ public class ExerciseTest {
             softAssert.assertEquals(AcualMassage ,ExpectedMassage,"fail");
             System.out.print("pass/fail");
 
-
             // Implicit Wait --> driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
 
         }
 
@@ -111,13 +109,10 @@ public class ExerciseTest {
             password.sendKeys("123456789");
             WebElement loginbtn = driver.findElement(By.xpath("//button[text()='Login']"));
             loginbtn.click();
-//        WebElement Text = driver.findElement(By.xpath("//b[contains(text(),'Nourhan Ayman Ibrahim')]"));
-//        String actualresult = Text.getText();String expectedresult = "Nourhan Ayman Ibrahim";
-//            Assert.assertEquals(actualresult, expectedresult, "Login failed");}
         }
         @AfterMethod
         public void closeBrowser(){
-//        driver.quit();
+        driver.quit();
         }
 
 
